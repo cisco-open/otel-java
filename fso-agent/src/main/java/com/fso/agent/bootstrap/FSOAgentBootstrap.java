@@ -1,3 +1,19 @@
+/*
+ * Copyright The Cisco Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.fso.agent.bootstrap;
 
 import java.lang.instrument.Instrumentation;
@@ -23,5 +39,15 @@ public class FSOAgentBootstrap {
     System.out.println(
         "FSO agent is up. Version: "
             + FSOAgentBootstrap.class.getPackage().getImplementationVersion());
+  }
+
+  private static void addSplunkAccessTokenToOtlpHeaders() {
+    String accessToken = getConfig("splunk.access.token");
+    if (accessToken != null) {
+      String userOtlpHeaders = getConfig("otel.exporter.otlp.headers");
+      String otlpHeaders =
+          (userOtlpHeaders == null ? "" : userOtlpHeaders + ",") + "FSO-TOKEN" + accessToken;
+      System.setProperty("otel.exporter.otlp.headers", otlpHeaders);
+    }
   }
 }
