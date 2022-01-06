@@ -21,6 +21,7 @@ dependencies {
     implementation("io.opentelemetry.javaagent", "opentelemetry-javaagent", version = "${versions["opentelemetry"]}", classifier = "all")
     implementation("com.google.auto.service:auto-service-annotations:1.0")
     implementation(project(":fso-core"))
+    implementation(project(":otel-extensions"))
 }
 
 tasks {

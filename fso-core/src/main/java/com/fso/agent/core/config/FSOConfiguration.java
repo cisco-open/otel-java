@@ -26,10 +26,6 @@ import org.slf4j.LoggerFactory;
 public interface FSOConfiguration {
   boolean metadataOnly();
 
-  Integer maxPayload();
-
-  String token();
-
   class ConfigProvider {
     private static final Logger logger = LoggerFactory.getLogger(ConfigProvider.class);
 

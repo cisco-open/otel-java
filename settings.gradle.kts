@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 include("fso-agent")
 include("fso-core")
+include("otel-extensions")
