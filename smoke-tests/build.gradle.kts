@@ -43,7 +43,6 @@ tasks.test {
             = HashMap()
 
     val suite = findProperty("smokeTestSuite")
-
     suites.put("tomcat", "**/TomcatSmokeTest.*")
     suites.put("jetty", "**/JettySmokeTest.*")
 
