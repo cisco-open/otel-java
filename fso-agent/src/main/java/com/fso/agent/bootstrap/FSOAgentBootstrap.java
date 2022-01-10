@@ -24,6 +24,12 @@ import com.fso.agent.core.config.InstrumentationManager;
 import io.opentelemetry.javaagent.OpenTelemetryAgent;
 
 public class FSOAgentBootstrap {
+  static class MissingTokenException extends Exception {
+    MissingTokenException() {
+      super("Token is not specified and should be. Please add token in format: fso.token");
+    }
+  }
+
   public static void premain(final String agentArgs, final Instrumentation inst) {
 
     // In case the user set fso.instrumentation.debug and not default otel.javaagent.debug
@@ -42,24 +48,16 @@ public class FSOAgentBootstrap {
             + FSOAgentBootstrap.class.getPackage().getImplementationVersion());
   }
 
-  private static void addFSOTokenToOtlpHeaders() {
+  private static void addFSOTokenToOtlpHeaders() throws MissingTokenException {
     String token = getConfig("fso.token");
-    if (token != null) {
-      String userOtlpHeaders = getConfig("otel.exporter.otlp.headers");
-      String otlpHeaders =
-              (userOtlpHeaders == null ? "" : userOtlpHeaders + ",") + "X-FSO-TOKEN=" + token;
-      System.setProperty("otel.exporter.otlp.headers", otlpHeaders);
+    if (token == null) {
+      throw new MissingTokenException();
     }
-  }
 
-  private static void addFSOServiceName() {
-    String accessToke = getConfig("fso.service.name");
-    if (accessToke != null) {
-      String userOtlpHeaders = getConfig("otel.exporter.otlp.headers");
-      String otlpHeaders =
-              (userOtlpHeaders == null ? "" : userOtlpHeaders + ",") + "X-FSO-TOKEN=" + accessToke;
-      System.setProperty("otel.exporter.otlp.headers", otlpHeaders);
-    }
+    String userOtlpHeaders = getConfig("otel.exporter.otlp.headers");
+    String otlpHeaders =
+        (userOtlpHeaders == null ? "" : userOtlpHeaders + ",") + "X-FSO-TOKEN=" + token;
+    System.setProperty("otel.exporter.otlp.headers", otlpHeaders);
   }
 
   private static String getConfig(String propertyName) {

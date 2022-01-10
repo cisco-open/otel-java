@@ -35,8 +35,8 @@ public class SmokeTestsConfiguration {
 
   /* Collector config */
   public static final String COLLECTOR_ALIAS = "collector";
-  public static final String COLLECTOR_IMAGE_PATH = "otel/opentelemetry-collector-dev:latest";
-  public static final String COLLECTOR_CONFIG_RESOURCE = "/otel-config.yaml";
+  public static final String COLLECTOR_IMAGE_PATH = "otel/opentelemetry-collector-contrib:latest";
+  public static final String COLLECTOR_CONFIG_RESOURCE = "/otel.yaml";
 
   /* Target config */
   public static final int TARGET_PORT = CONTAINER_TESTS_COMMUNICATION_PORT;
@@ -62,7 +62,7 @@ public class SmokeTestsConfiguration {
     agentEnvVars.put("OTEL_BSP_MAX_EXPORT_BATCH_SIZE", "1");
     agentEnvVars.put("OTEL_TRACES_EXPORTER", "otlp");
     agentEnvVars.put("OTEL_BSP_SCHEDULE_DELAY", "10ms");
-    agentEnvVars.put("OTEL_EXPORTER_OTLP_ENDPOINT", "http://collector:55680");
+    agentEnvVars.put("OTEL_EXPORTER_OTLP_ENDPOINT", "http://collector:4317");
     agentEnvVars.put("FSO_METADATA_ONLY", Boolean.toString(METADATA_ONLY));
     // TODO: maybe in the future, get this token from somewhere so we can see the test traces in
     // fso dashboard!

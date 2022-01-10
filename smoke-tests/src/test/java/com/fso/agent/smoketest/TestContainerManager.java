@@ -128,7 +128,7 @@ public class TestContainerManager {
       Map<String, String> extraResources,
       TargetWaitStrategy waitStrategy) {
 
-    logger.info("Starting the taregt!");
+    logger.info("Starting the target!");
     Consumer<OutputFrame> output = new ToStringConsumer();
     target =
         new GenericContainer<>(DockerImageName.parse(targetImageName))
