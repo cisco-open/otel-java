@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.fso.agent.smoketest;
+package com.fso.agent.testing;
 
-import java.lang.annotation.*;
+import io.opentelemetry.instrumentation.testing.junit.AgentInstrumentationExtension;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-@Repeatable(com.fso.agent.smoketest.AppServers.class)
-@Inherited
-public @interface AppServer {
-  String version();
+// TODO: implement this after solve the agent-for-testing-issue
+public abstract class AbstractInstrumenterTest {
+  static {
+    System.setProperty("fso.metadata_only", "true");
+    System.setProperty("io.opentelemetry.javaagent.slf4j.simpleLogger.log.muzzleMatcher", "warn");
+  }
 
-  String jdk();
+  static final AgentInstrumentationExtension instrTesting = AgentInstrumentationExtension.create();
 }

@@ -30,7 +30,7 @@ var OPENTELEMETRY_INSTRUMENTATION_VERSION = "1.1.0-alpha"
 
 subprojects {
     group = "com.fso"
-    version = "1.0"
+    version = "1.0.4"
 
     extra.set("versions", mapOf(
             "slf4j" to "1.7.30",
@@ -68,6 +68,30 @@ subprojects {
             useJUnitPlatform()
             reports {
                 junitXml.isOutputPerTestCase = true
+            }
+        }
+    }
+}
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.fso"
+            artifactId = "fso-java-agent"
+            version = "1.0.0-SNAPSHOT"
+
+            from(components["java"])
+        }
+    }
+
+    repositories {
+        maven {
+            val user = System.getenv("OSSRH_JIRA_USERNAME")
+            val pass = System.getenv("OSSRH_JIRA_PASSWORD")
+            name = "fso-java-agent"
+            url = uri("https://oss.sonatype.org/content/repositories/snapshots")
+            credentials {
+                username = user
+                password = pass
             }
         }
     }
