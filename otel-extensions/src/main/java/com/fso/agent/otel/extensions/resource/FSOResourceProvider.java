@@ -27,6 +27,7 @@ import io.opentelemetry.api.common.Attributes;
 import io.opentelemetry.api.common.AttributesBuilder;
 import io.opentelemetry.sdk.autoconfigure.ConfigProperties;
 import io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider;
+import io.opentelemetry.semconv.resource.attributes.ResourceAttributes;
 import io.opentelemetry.sdk.resources.Resource;
 
 @AutoService(ResourceProvider.class)
@@ -36,12 +37,10 @@ public class FSOResourceProvider implements ResourceProvider {
 
   @Override
   public Resource createResource(ConfigProperties config) {
-    System.out.println("HUUU");
     log.debug("Creating new Resource Provider");
 
     AttributesBuilder builder = Attributes.builder();
-    builder.put(
-        FSOResourceAttributes.FSO_SERVICE_NAME.key, FSOConfigurationProvider.getServiceName());
+    builder.put(ResourceAttributes.SERVICE_NAME, FSOConfigurationProvider.getServiceName());
     builder.put(FSOResourceAttributes.FSO_VERSION.key, FSOAgentVersionProvider.getAgentVersion());
     return Resource.create(builder.build());
   }

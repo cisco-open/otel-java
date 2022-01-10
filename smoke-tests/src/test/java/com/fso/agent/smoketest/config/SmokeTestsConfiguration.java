@@ -41,10 +41,10 @@ public class SmokeTestsConfiguration {
   /* Target config */
   public static final int TARGET_PORT = CONTAINER_TESTS_COMMUNICATION_PORT;
   // The path for the Our agent in the container
-  public static final String DEST_AGENT_FILEPATH = "/epsagon-agent-all.jar";
+  public static final String DEST_AGENT_FILEPATH = "/fso-agent-all.jar";
 
-  /* Epsagon config */
-  private static final boolean EPSAGON_DEBUG = true;
+  /* FSO config */
+  private static final boolean FSO_DEBUG = true;
   private static final boolean METADATA_ONLY = false;
 
   /**
@@ -57,16 +57,16 @@ public class SmokeTestsConfiguration {
     agentEnvVars.put(
         "JAVA_TOOL_OPTIONS",
         String.format(
-            "-javaagent:%s -Depsagon.debug=%b -Dotel.instrumentation.ep.enabled=false",
-            DEST_AGENT_FILEPATH, EPSAGON_DEBUG));
+            "-javaagent:%s -Dfso.debug=%b -Dotel.instrumentation.ep.enabled=false",
+            DEST_AGENT_FILEPATH, FSO_DEBUG));
     agentEnvVars.put("OTEL_BSP_MAX_EXPORT_BATCH_SIZE", "1");
     agentEnvVars.put("OTEL_TRACES_EXPORTER", "otlp");
     agentEnvVars.put("OTEL_BSP_SCHEDULE_DELAY", "10ms");
     agentEnvVars.put("OTEL_EXPORTER_OTLP_ENDPOINT", "http://collector:55680");
-    agentEnvVars.put("EPSAGON_METADATA_ONLY", Boolean.toString(METADATA_ONLY));
+    agentEnvVars.put("FSO_METADATA_ONLY", Boolean.toString(METADATA_ONLY));
     // TODO: maybe in the future, get this token from somewhere so we can see the test traces in
-    // epsagon dashboard!
-    agentEnvVars.put("EPSAGON_TOKEN", "some-token");
+    // fso dashboard!
+    agentEnvVars.put("FSO_TOKEN", "some-token");
 
     return agentEnvVars;
   }

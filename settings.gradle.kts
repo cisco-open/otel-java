@@ -1,5 +1,5 @@
-rootProject.name = "otel-java"
-//include("smoke-tests")
+rootProject.name = "fso-java-sdk"
+include("smoke-tests")
 
 pluginManagement {
     plugins {
@@ -27,8 +27,13 @@ dependencyResolutionManagement {
 }
 
 include("fso-agent")
-include("fso-core")
-include("javaagent-bootstrap")
+include("instrumentation")
 include("javaagent-tooling")
-include("testing-bootstrap")
+include("javaagent-bootstrap")
+include("fso-core")
+
+include(":testing-common")
+
 include("otel-extensions")
+include("testing-bootstrap")
+

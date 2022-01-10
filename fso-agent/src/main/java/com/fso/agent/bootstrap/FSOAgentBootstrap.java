@@ -24,15 +24,9 @@ import com.fso.agent.core.config.InstrumentationManager;
 import io.opentelemetry.javaagent.OpenTelemetryAgent;
 
 public class FSOAgentBootstrap {
-  static class MissingTokenException extends Exception {
-    MissingTokenException() {
-      super("Token is not specified and should be. Please add token in format: fso.token");
-    }
-  }
-
   public static void premain(final String agentArgs, final Instrumentation inst) {
 
-    // In case the user set fso.debug and not default otel.javaagent.debug
+    // In case the user set fso.instrumentation.debug and not default otel.javaagent.debug
     // This is has to be done before Otel agent boot because he pools the config from System/Env and
     // not from api.config.Config
     if (Boolean.parseBoolean(System.getProperty("fso.debug"))) {
@@ -48,25 +42,26 @@ public class FSOAgentBootstrap {
             + FSOAgentBootstrap.class.getPackage().getImplementationVersion());
   }
 
-  private static void addTokenToOtlpHeaders() throws MissingTokenException {
-    String accessToken = getConfig("fso.token");
-    if (accessToken != null) {
+  private static void addFSOTokenToOtlpHeaders() {
+    String token = getConfig("fso.token");
+    if (token != null) {
       String userOtlpHeaders = getConfig("otel.exporter.otlp.headers");
       String otlpHeaders =
-          (userOtlpHeaders == null ? "" : userOtlpHeaders + ",") + "FSO-TOKEN" + accessToken;
+              (userOtlpHeaders == null ? "" : userOtlpHeaders + ",") + "X-FSO-TOKEN=" + token;
       System.setProperty("otel.exporter.otlp.headers", otlpHeaders);
-    } else {
-      throw new MissingTokenException();
     }
   }
 
-  /**
-   * Parse a config property from System Properties/Environment Variables. We can not use OTel's
-   * config here since it has to be done before the initialization.
-   *
-   * @param propertyName The property name to get from the system
-   * @return The property values. The default here is empty String
-   */
+  private static void addFSOServiceName() {
+    String accessToke = getConfig("fso.service.name");
+    if (accessToke != null) {
+      String userOtlpHeaders = getConfig("otel.exporter.otlp.headers");
+      String otlpHeaders =
+              (userOtlpHeaders == null ? "" : userOtlpHeaders + ",") + "X-FSO-TOKEN=" + accessToke;
+      System.setProperty("otel.exporter.otlp.headers", otlpHeaders);
+    }
+  }
+
   private static String getConfig(String propertyName) {
     String value = System.getProperty(propertyName);
     if (value != null) {

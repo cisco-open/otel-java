@@ -17,8 +17,7 @@
 package com.fso.agent.otel.extensions.resource;
 
 public enum FSOResourceAttributes {
-  FSO_VERSION("fso.version"),
-  FSO_SERVICE_NAME("service_name");
+  FSO_VERSION("fso.version");
 
   public final String key;
 

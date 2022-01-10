@@ -1,4 +1,4 @@
-package com.epsagon.agent.smoketest
+package com.fso.agent.smoketest
 
 
 import com.fasterxml.jackson.databind.ObjectMapper

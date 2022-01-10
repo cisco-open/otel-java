@@ -32,8 +32,6 @@ public class ConfigurationInstaller implements ComponentInstaller {
   @Override
   public void beforeByteBuddyAgent(Config config) {
     // get initializes singleton
-    logger.debug("INSTALLED FUCK");
-    System.out.println("FUCKKKK");
     ConfigProvider.get();
     logger.debug("OTel Config: " + config);
   }

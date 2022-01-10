@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.epsagon.agent.smoketest
+package com.fso.agent.smoketest
 
 @AppServer(version = "7.0.107", jdk = "8")
 @AppServer(version = "7.0.107", jdk = "8-openj9")

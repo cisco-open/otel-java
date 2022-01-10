@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.epsagon.agent.smoketest
+package com.fso.agent.smoketest
 
 import static java.util.stream.Collectors.toSet
 

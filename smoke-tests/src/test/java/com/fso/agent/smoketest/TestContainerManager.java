@@ -16,6 +16,8 @@
 
 package com.fso.agent.smoketest;
 
+import static com.fso.agent.smoketest.config.SmokeTestsConfiguration.*;
+
 import java.time.Duration;
 import java.util.Map;
 import java.util.function.Consumer;
