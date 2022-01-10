@@ -3,10 +3,10 @@ name: Bors Pull Request CI
 on:
   pull_request:
     branches:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
 jobs:
   ci-check-bors:
     runs-on: ubuntu-20.04
