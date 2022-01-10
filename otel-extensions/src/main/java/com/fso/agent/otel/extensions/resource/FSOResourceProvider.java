@@ -36,6 +36,7 @@ public class FSOResourceProvider implements ResourceProvider {
 
   @Override
   public Resource createResource(ConfigProperties config) {
+    System.out.println("HUUU");
     log.debug("Creating new Resource Provider");
 
     AttributesBuilder builder = Attributes.builder();

@@ -14,6 +14,23 @@
  * limitations under the License.
  */
 
-package com.epsagon.agent.otel.extensions.config;
+package com.fso.agent.smoketest;
 
-public class DefaultOpenPropertySourceTest {}
+import java.time.Duration;
+
+public abstract class TargetWaitStrategy {
+  public final Duration timeout;
+
+  protected TargetWaitStrategy(Duration timeout) {
+    this.timeout = timeout;
+  }
+
+  public static class Log extends TargetWaitStrategy {
+    public final String regex;
+
+    public Log(Duration timeout, String regex) {
+      super(timeout);
+      this.regex = regex;
+    }
+  }
+}

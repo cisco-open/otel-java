@@ -2,6 +2,7 @@ plugins {
     `java-library`
     `maven-publish`
     id("com.diffplug.spotless") version "5.2.0" apply false
+    id("org.gradle.test-retry") version "1.2.0" apply false
 }
 
 allprojects {
