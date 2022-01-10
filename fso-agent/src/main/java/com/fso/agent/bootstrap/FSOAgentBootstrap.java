@@ -32,7 +32,7 @@ public class FSOAgentBootstrap {
 
   public static void premain(final String agentArgs, final Instrumentation inst) {
 
-    // In case the user set fso.debug and not default otel.javaagent.debug
+    // In case the user set fso.instrumentation.debug and not default otel.javaagent.debug
     // This is has to be done before Otel agent boot because he pools the config from System/Env and
     // not from api.config.Config
     if (Boolean.parseBoolean(System.getProperty("fso.debug"))) {
@@ -48,25 +48,18 @@ public class FSOAgentBootstrap {
             + FSOAgentBootstrap.class.getPackage().getImplementationVersion());
   }
 
-  private static void addTokenToOtlpHeaders() throws MissingTokenException {
-    String accessToken = getConfig("fso.token");
-    if (accessToken != null) {
-      String userOtlpHeaders = getConfig("otel.exporter.otlp.headers");
-      String otlpHeaders =
-          (userOtlpHeaders == null ? "" : userOtlpHeaders + ",") + "FSO-TOKEN" + accessToken;
-      System.setProperty("otel.exporter.otlp.headers", otlpHeaders);
-    } else {
+  private static void addFSOTokenToOtlpHeaders() throws MissingTokenException {
+    String token = getConfig("fso.token");
+    if (token == null) {
       throw new MissingTokenException();
     }
+
+    String userOtlpHeaders = getConfig("otel.exporter.otlp.headers");
+    String otlpHeaders =
+        (userOtlpHeaders == null ? "" : userOtlpHeaders + ",") + "X-FSO-TOKEN=" + token;
+    System.setProperty("otel.exporter.otlp.headers", otlpHeaders);
   }
 
-  /**
-   * Parse a config property from System Properties/Environment Variables. We can not use OTel's
-   * config here since it has to be done before the initialization.
-   *
-   * @param propertyName The property name to get from the system
-   * @return The property values. The default here is empty String
-   */
   private static String getConfig(String propertyName) {
     String value = System.getProperty(propertyName);
     if (value != null) {

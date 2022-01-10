@@ -31,4 +31,8 @@ public class FSOConfigurationProvider {
   public static String getServiceName() {
     return Config.get().getProperty("fso.service.name");
   }
+
+  public static String getToken() throws IllegalStateException {
+    return Config.get().getProperty("fso.token");
+  }
 }

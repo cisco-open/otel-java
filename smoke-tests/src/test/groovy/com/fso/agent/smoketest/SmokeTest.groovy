@@ -1,4 +1,4 @@
-package com.epsagon.agent.smoketest
+package com.fso.agent.smoketest
 
 import io.opentelemetry.instrumentation.test.utils.OkHttpUtils
 import io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceRequest
@@ -14,7 +14,7 @@ import java.util.regex.Pattern
 import java.util.stream.Stream
 
 import static java.util.stream.Collectors.toSet
-import static com.epsagon.agent.smoketest.config.SmokeTestsConfiguration.TARGET_PORT
+import static com.fso.agent.smoketest.config.SmokeTestsConfiguration.TARGET_PORT
 
 
 abstract class SmokeTest extends Specification {

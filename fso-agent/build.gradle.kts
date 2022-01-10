@@ -1,5 +1,5 @@
 group = "com.fso"
-version = "1.0"
+version = "1.0.0"
 
 val versions: Map<String, String> by extra
 
@@ -21,10 +21,20 @@ dependencies {
     implementation("io.opentelemetry.javaagent", "opentelemetry-javaagent", version = "${versions["opentelemetry"]}", classifier = "all")
     implementation("com.google.auto.service:auto-service-annotations:1.0")
     implementation(project(":fso-core"))
-    implementation(project(":otel-extensions"))
 }
 
 tasks {
+    processResources {
+        val customizationShadowTask = project(":instrumentation").tasks.named<Jar>("shadowJar")
+        val providerArchive = customizationShadowTask.get().archiveFile
+        from(zipTree(providerArchive)) {
+            into("inst")
+            rename("(^.*)\\.class$", "$1.classdata")
+        }
+        exclude("**/META-INF/LICENSE")
+        dependsOn(customizationShadowTask)
+    }
+
     shadowJar {
         relocate("com.blogspot.mydailyjava.weaklockfree", "io.opentelemetry.instrumentation.api.internal.shaded.weaklockfree")
 
@@ -66,7 +76,7 @@ tasks {
             val implementationVersion: String
 
             if (versionString.endsWith("-SNAPSHOT")) {
-                implementationVersion = "${versionString.dropLast("-SNAPSHOT".length)}-fso-SNAPSHOT"
+                implementationVersion = "${versionString.dropLast("-SNAPSHOT".length)}-espagon-SNAPSHOT"
 
             } else {
                 implementationVersion = "$versionString-fso"

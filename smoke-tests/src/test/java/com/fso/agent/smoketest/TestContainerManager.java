@@ -16,6 +16,8 @@
 
 package com.fso.agent.smoketest;
 
+import static com.fso.agent.smoketest.config.SmokeTestsConfiguration.*;
+
 import java.time.Duration;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -126,7 +128,7 @@ public class TestContainerManager {
       Map<String, String> extraResources,
       TargetWaitStrategy waitStrategy) {
 
-    logger.info("Starting the taregt!");
+    logger.info("Starting the target!");
     Consumer<OutputFrame> output = new ToStringConsumer();
     target =
         new GenericContainer<>(DockerImageName.parse(targetImageName))

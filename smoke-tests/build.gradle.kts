@@ -12,6 +12,7 @@ val versions: Map<String, String> by extra
 
 dependencies{
     testImplementation(project(":fso-core"))
+    testImplementation(project(":testing-common"))
     testImplementation("org.testcontainers:testcontainers:1.15.2")
     testImplementation("com.squareup.okhttp3:okhttp:4.9.0")
     testImplementation("org.awaitility:awaitility:4.0.3")
@@ -42,7 +43,6 @@ tasks.test {
             = HashMap()
 
     val suite = findProperty("smokeTestSuite")
-
     suites.put("tomcat", "**/TomcatSmokeTest.*")
     suites.put("jetty", "**/JettySmokeTest.*")
 
