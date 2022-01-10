@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package com.fso.agent.otel.extensions.resource;
+package com.fso.agent.testing;
 
-public enum FSOResourceAttributes {
-  FSO_VERSION("fso.version");
+import io.opentelemetry.instrumentation.testing.junit.AgentInstrumentationExtension;
 
-  public final String key;
-
-  FSOResourceAttributes(String key) {
-    this.key = key;
+// TODO: implement this after solve the agent-for-testing-issue
+public abstract class AbstractInstrumenterTest {
+  static {
+    System.setProperty("fso.metadata_only", "true");
+    System.setProperty("io.opentelemetry.javaagent.slf4j.simpleLogger.log.muzzleMatcher", "warn");
   }
+
+  static final AgentInstrumentationExtension instrTesting = AgentInstrumentationExtension.create();
 }

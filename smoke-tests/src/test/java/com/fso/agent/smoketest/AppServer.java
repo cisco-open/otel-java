@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package com.fso.agent.otel.extensions.resource;
+package com.fso.agent.smoketest;
 
-public enum FSOResourceAttributes {
-  FSO_VERSION("fso.version");
+import java.lang.annotation.*;
 
-  public final String key;
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@Repeatable(com.fso.agent.smoketest.AppServers.class)
+@Inherited
+public @interface AppServer {
+  String version();
 
-  FSOResourceAttributes(String key) {
-    this.key = key;
-  }
+  String jdk();
 }

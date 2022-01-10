@@ -2,7 +2,7 @@ plugins {
     `java-library`
     idea
 }
-// TODO: this package is note loaded and auto serv. should fix that.
+
 val versions: Map<String, String> by extra
 
 dependencies {

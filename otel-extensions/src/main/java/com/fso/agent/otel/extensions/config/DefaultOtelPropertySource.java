@@ -41,7 +41,7 @@ public class DefaultOtelPropertySource implements PropertySource {
 
     // OpenTelemetry (over gRPC) protocol
     configProperties.put("otel.traces.exporter", "otlp");
-    configProperties.put("otel.exporter.otlp.endpoint", "https://localhost:4731");
+    configProperties.put("otel.exporter.otlp.endpoint", "http://localhost:4317");
 
     // Experimental Span Attributes
     configProperties.put("otel.instrumentation.servlet.experimental-span-attributes", "true");

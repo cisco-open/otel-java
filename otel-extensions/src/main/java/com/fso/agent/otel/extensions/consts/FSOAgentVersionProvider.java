@@ -26,7 +26,6 @@ public class FSOAgentVersionProvider {
 
   public static String getAgentVersion() {
     String agentVersion = "";
-    log.debug("OSHERRR");
     try {
       Class<?> fsoAgentClass =
           Class.forName("com.fso.agent.bootstrap.FSOAgentBootstrap", true, null);
