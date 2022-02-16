@@ -6,7 +6,7 @@ plugins {
 val versions: Map<String, String> by extra
 
 dependencies {
-    api(project(":fso-core"))
+    api(project(":agent-core"))
 
     compileOnly("io.opentelemetry:opentelemetry-sdk:${versions["opentelemetry"]}")
     compileOnly("io.opentelemetry:opentelemetry-sdk-extension-autoconfigure:${versions["opentelemetry_alpha"]}")

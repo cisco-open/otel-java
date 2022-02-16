@@ -1,4 +1,4 @@
-rootProject.name = "fso-java-sdk"
+rootProject.name = "cisco-otel-java"
 include("smoke-tests")
 
 pluginManagement {
@@ -26,11 +26,11 @@ dependencyResolutionManagement {
     }
 }
 
-include("fso-agent")
+include("javaagent")
 include("instrumentation")
 include("javaagent-tooling")
 include("javaagent-bootstrap")
-include("fso-core")
+include("agent-core")
 
 include(":testing-common")
 

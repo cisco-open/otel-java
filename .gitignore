@@ -49,15 +49,15 @@ local.properties
 
 # IntelliJ
 /out/
-fso-opentracing-agent/instrumentation/aws-java-sdk-1.11.0/out/
-fso-opentracing-agent/instrumentation/kafka-clients-0.11/out/
-fso-opentracing-agent/instrumentation/out/
-fso-opentracing-agent/instrumentation/slf4j-1.7.25/out/
-fso-opentracing-agent/instrumentation/spring-web/out/
-fso-opentracing-agent/tools/out/
-fso-opentracing-agent/out/
-fso-opentracing-api/out/
-fso-opentracing-tracer/out/
+cisco-opentracing-agent/instrumentation/aws-java-sdk-1.11.0/out/
+cisco-opentracing-agent/instrumentation/kafka-clients-0.11/out/
+cisco-opentracing-agent/instrumentation/out/
+cisco-opentracing-agent/instrumentation/slf4j-1.7.25/out/
+cisco-opentracing-agent/instrumentation/spring-web/out/
+cisco-opentracing-agent/tools/out/
+cisco-opentracing-agent/out/
+cisco-opentracing-api/out/
+cisco-opentracing-tracer/out/
 
 
 ### Intellij Patch ###

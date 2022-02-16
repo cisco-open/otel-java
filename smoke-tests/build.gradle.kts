@@ -11,7 +11,7 @@ apply {
 val versions: Map<String, String> by extra
 
 dependencies{
-    testImplementation(project(":fso-core"))
+    testImplementation(project(":agent-core"))
     testImplementation(project(":testing-common"))
     testImplementation("org.testcontainers:testcontainers:1.15.2")
     testImplementation("com.squareup.okhttp3:okhttp:4.9.0")
@@ -58,7 +58,7 @@ tasks.test {
         }
     }
 
-    val shadowTask : Jar = project(":fso-agent").tasks.named<Jar>("shadowJar").get()
+    val shadowTask : Jar = project(":javaagent").tasks.named<Jar>("shadowJar").get()
     inputs.files(layout.files(shadowTask))
 
     doFirst {
