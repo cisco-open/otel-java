@@ -14,7 +14,7 @@ java {
 }
 
 base {
-    archivesBaseName = "javaagent"
+    archivesBaseName = "cisco-otel-agent"
 }
 
 dependencies {
