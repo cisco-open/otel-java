@@ -1,4 +1,4 @@
-JIRA link: https://fso.atlassian.net/browse/EP-
+JIRA link: https://cisco.atlassian.net/browse/EP-
 
 ## PR Checklist
 - [ ] Automatic Tests (bug reproduce, feature)

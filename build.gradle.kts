@@ -29,7 +29,7 @@ var OPENTELEMETRY_INSTRUMENTATION_VERSION = "1.1.0-alpha"
 
 
 subprojects {
-    group = "com.fso"
+    group = "com.cisco"
     version = "1.0.4"
 
     extra.set("versions", mapOf(
@@ -75,8 +75,8 @@ subprojects {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "com.fso"
-            artifactId = "fso-java-agent"
+            groupId = "com.cisco"
+            artifactId = "cisco-otel-javaagent"
             version = "1.0.0-SNAPSHOT"
 
             from(components["java"])
@@ -87,7 +87,7 @@ publishing {
         maven {
             val user = System.getenv("OSSRH_JIRA_USERNAME")
             val pass = System.getenv("OSSRH_JIRA_PASSWORD")
-            name = "fso-java-agent"
+            name = "cisco-otel-javaagent"
             url = uri("https://oss.sonatype.org/content/repositories/snapshots")
             credentials {
                 username = user

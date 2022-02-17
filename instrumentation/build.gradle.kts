@@ -43,7 +43,7 @@ subprojects {
 
         implementation("io.opentelemetry.instrumentation:opentelemetry-instrumentation-api:${versions["opentelemetry_alpha"]}")
 
-        implementation(project(":fso-core"))
+        implementation(project(":agent-core"))
         testImplementation(project(":testing-common"))
     }
 
@@ -64,7 +64,7 @@ tasks {
     shadowJar {
         dependencies{
             // exclude core, it lives in the bootstrap classloader
-            exclude(project(":fso-core"))
+            exclude(project(":agent-core"))
         }
 
         mergeServiceFiles()

@@ -1,9 +1,9 @@
-# FSO OpenTelemetry Java Agent 
+# Cisco Java Agent OpenTelemetry Distribution
 
 
-The FSO Distribution of [OpenTelemetry Instrumentation for Java](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
+The Cisco OpenTelemetry Distribution of [OpenTelemetry Instrumentation for Java](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 
-This package provides tracing to Java applications for the collection of distributed tracing and performance metrics in [ FSO](https://app.fso.com/?utm_source=github).
+This package provides tracing to Java applications for the collection of distributed tracing and performance metrics in [Cisco Telescope](https://app.telescope.com/?utm_source=github).
 
 ## Requirements
 
@@ -11,56 +11,56 @@ The agent works with Java runtimes version 8 and higher.
 
 ## Installation and getting started
 
-Download the [latest version](https://fso-java-sdk.s3.amazonaws.com/fso-agent-1.0.0-all.jar)
+Download the [latest version](https://cisco-java-sdk.s3.amazonaws.com/cisco-agent-1.0.0-all.jar)
 
 * On Linux, run:
 ```shell
-export FSO_SERVICE_NAME=APP
-export FSO_TOKEN=<token>
+export OTEL_SERVICE_NAME=APP
+export CISCO_TOKEN=<token>
 
-java -javaagent:./fso-javaagent.jar \
+java -javaagent:./cisco-otel-javaagent.jar \
   -jar <myapp>.jar
 ```
 Insert the -javaagent flag before the -jar file, adding it as a JVM option, not as an application argument.
 
 ## Configuration
-FSO Agent support all existing [Open Telemetry configurations](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/agent-config.md)
+Cisco OTel Agent support all existing [Open Telemetry configurations](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/agent-config.md)
 and provides new defaults for some of them.
 
-In addition, FSO exports another set of Properties/Variables for the specific FSO Agent configuration
+In addition, Cisco OTel agent exports another set of Properties/Variables for the specific Cisco Agent configuration
 
-FSO Agent configurations:
+Cisco OTel Agent configurations:
 
 |System property                         |Environment variable          |Default          |Description
 |----------------------------------------|------------------------------|-----------------|----------------|
-|fso.token                           | FSO_TOKEN                | None            |FSO account token|
-|fso.service.name                           | FSO_SERVICE_NAME                | None            |FSO service name|
-|fso.metadata_only                   | FSO_METADATA_ONLY        | ```True```      |Whether to send only the metadata (True) or also the payloads (False). Follow [Specifications](https://github.com/fso/fso-otel-specifications) for more information.|
-|fso.debug                           | -                            | ```False```     |Enable debug prints for troubleshooting|
+|cisco.token                             | CISCO_TOKEN                  | None            | Cisco account token|
+|otel.service.name                       | OTEL_SERVICE_NAME            | None            | Java service name|
+|cisco.metadata_only                     | CISCO_PAYLOADS_ENABLED       | ```False```      | Whether to capture additional payloads and experimental attributes. Follow [Specifications](https://github.com/epsagon/cisco-otel-distribution-specifications) for more information.|
+|cisco.debug                             | -                            | ```False```     |Enable debug prints for troubleshooting|
 
 
-Open Telemetry FSO defaults:
+Open Telemetry defaults:
 
 |System property                         |Environment variable          |Default          |Description    
 |----------------------------------------|------------------------------|-----------------|----------------|
 |OTEL_METRICS_EXPORTER                   | otel.metrics.exporter        | None            | By default, metrics are currently not supported|
-|OTEL_INSTRUMENTATION_RUNTIME-METRICS_ENABLED                  | otel.instrumentation.runtime-metrics.enabled        | None            | By default, metrics are currently not supported|
-|OTEL_TRACES_EXPORTER                   | otel.traces.exporter        | otlp            | Otlp over gRPCkexporter|
-|OTEL_EXPORTER_OTLP_ENDPOINT                   | otel.exporter.otlp.endpoint        | https://opentelemetry.tc.fso.com/traces            | The FSO Otlp-gRPC collector URL path|
+|OTEL_INSTRUMENTATION_RUNTIME-METRICS_ENABLED                           | otel.instrumentation.runtime-metrics.enabled        | None            | By default, metrics are currently not supported|
+|OTEL_TRACES_EXPORTER                   | otel.traces.exporter          | otlp            | Otlp over gRPC exporter|
+|OTEL_EXPORTER_OTLP_ENDPOINT                   | otel.exporter.otlp.endpoint        | https://opentelemetry.tc.cisco.com/traces            | The Cisco Otlp-gRPC collector URL path|
 
 
 ## Getting Help
 
 If you have any issue around using the library or the product, please don't hesitate to:
 
-* Use the [documentation](https://docs.fso.com).
+* Use the [documentation](https://docs.cisco.com).
 * Use the help widget inside the product.
 * Open an issue in GitHub.
 
 
 ## Opening Issues
 
-If you encounter a bug with the FSO library for Java, we want to hear about it.
+If you encounter a bug with the Cisco OpenTelemetry Distribution library for Java, we want to hear about it.
 
 When opening a new issue, please provide as much information about the environment:
 * Library version, Java runtime version, dependencies, etc.
@@ -68,11 +68,11 @@ When opening a new issue, please provide as much information about the environme
 * A reproducible example can really help.
 
 The GitHub issues are intended for bug reports and feature requests.
-For help and questions about FSO, use the help widget inside the product.
+For help and questions about Cisco OpenTelemetry Distribution, use the help widget inside the product.
 
 ## License
 
 Provided under the MIT license. See LICENSE for details.
 
-Copyright 2020, FSO
+Copyright 2020, Cisco
 
