@@ -35,7 +35,7 @@ Cisco OTel Agent configurations:
 |----------------------------------------|------------------------------|-----------------|----------------|
 |cisco.token                             | CISCO_TOKEN                  | None            | Cisco account token|
 |otel.service.name                       | OTEL_SERVICE_NAME            | None            | Java service name|
-|cisco.metadata_only                     | CISCO_PAYLOADS_ENABLED       | ```False```      | Whether to capture additional payloads and experimental attributes. Follow [Specifications](https://github.com/epsagon/cisco-otel-distribution-specifications) for more information.|
+|cisco.payloads_enabled                  | CISCO_PAYLOADS_ENABLED       | ```False```      | Whether to capture additional payloads and experimental attributes. Follow [Specifications](https://github.com/epsagon/cisco-otel-distribution-specifications) for more information.|
 |cisco.debug                             | -                            | ```False```     |Enable debug prints for troubleshooting|
 
 
