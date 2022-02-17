@@ -57,7 +57,7 @@ public class SmokeTestsConfiguration {
     agentEnvVars.put(
         "JAVA_TOOL_OPTIONS",
         String.format(
-            "-javaagent:%s -cisco.debug=%b -Dotel.instrumentation.ep.enabled=false",
+            "-javaagent:%s -Dcisco.debug=%b -Dotel.instrumentation.ep.enabled=false",
             DEST_AGENT_FILEPATH, CISCO_DEBUG));
     agentEnvVars.put("OTEL_BSP_MAX_EXPORT_BATCH_SIZE", "1");
     agentEnvVars.put("OTEL_TRACES_EXPORTER", "otlp");
