@@ -3,7 +3,7 @@
 
 The Cisco OpenTelemetry Distribution of [OpenTelemetry Instrumentation for Java](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 
-This package provides tracing to Java applications for the collection of distributed tracing and performance metrics in [Cisco Telescope](https://app.telescope.com/?utm_source=github).
+This package provides tracing to Java applications for the collection of distributed tracing and performance metrics in [Cisco Telescope](https://cisco-fso.com).
 
 ## Requirements
 
@@ -53,7 +53,6 @@ Open Telemetry defaults:
 
 If you have any issue around using the library or the product, please don't hesitate to:
 
-* Use the [documentation](https://docs.cisco.com).
 * Use the help widget inside the product.
 * Open an issue in GitHub.
 
