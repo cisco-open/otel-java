@@ -1,5 +1,18 @@
 # otel-java
 
+<p align="center">
+ <img alt="Stable" src="https://img.shields.io/badge/status-stable-informational?style=for-the-badge">
+  <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/tag/v1.13.0">
+    <img alt="OpenTelemetry Instrumentation for Java Version" src="https://img.shields.io/badge/otel-1.13.0-blueviolet?style=for-the-badge">
+  </a>
+  <a href="https://github.com/cisco-open/otel-java/actions/workflows/ci.yml">
+    <img alt="Build Status" src="https://img.shields.io/github/workflow/status/cisco-open/otel-java/Build?style=for-the-badge">
+  </a>
+  <a href="https://github.com/cisco-open/otel-java/releases">
+    <img alt="GitHub release (latest by date including)" src="https://img.shields.io/github/v/release/cisco-open/otel-java?style=for-the-badge">
+  </a>
+</p>
+
 ![Trace](trace.png)
 
 This package provides OpenTelemetry-compliant tracing to Java
@@ -25,7 +38,7 @@ applications for the collection of distributed tracing and performance metrics i
 
 ### Download the javaagent
 
-Download the [latest version](https://cisco-java-sdk.s3.amazonaws.com/cisco-agent-1.0.0-all.jar)
+Download the [latest version](https://github.com/cisco-open/otel-java/releases/download/latest/cisco-telescope-javaagent.jar)
 
 
 ### Library initialization
