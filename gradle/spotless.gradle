@@ -7,10 +7,6 @@ spotless {
     removeUnusedImports() // removes any unused imports
     target 'src/**/*.java'
   }
-// Enable when Groovy tests are added
-//  groovy {
-//    licenseHeaderFile rootProject.file('gradle/spotless.license.java'), '(package|import|class)'
-//  }
   scala {
     scalafmt()
     licenseHeaderFile rootProject.file('gradle/spotless.license.java'), '(package|import|public)'
@@ -29,6 +25,3 @@ spotless {
     endWithNewline()
   }
 }
-
-task formatCode(dependsOn: ['spotlessApply'])
-check.dependsOn 'spotlessCheck'
