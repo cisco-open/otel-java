@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  build-and-test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 11 for running Gradle
+        uses: actions/setup-java@v2
+        with:
+          distribution: adopt
+          java-version: 11.0.11+9
+
+      - name: Build and test
+        run: ./gradlew build -x :smoke-tests:test --no-daemon

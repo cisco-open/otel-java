@@ -1,5 +1,18 @@
 # otel-java
 
+<p align="center">
+ <img alt="Stable" src="https://img.shields.io/badge/status-stable-informational?style=for-the-badge">
+  <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/tag/v1.13.0">
+    <img alt="OpenTelemetry Instrumentation for Java Version" src="https://img.shields.io/badge/otel-1.13.0-blueviolet?style=for-the-badge">
+  </a>
+  <a href="https://github.com/cisco-open/otel-java/actions/workflows/ci.yml">
+    <img alt="Build Status" src="https://img.shields.io/github/workflow/status/cisco-open/otel-java/Build?style=for-the-badge">
+  </a>
+  <a href="https://github.com/cisco-open/otel-java/releases">
+    <img alt="GitHub release (latest by date including)" src="https://img.shields.io/github/v/release/cisco-open/otel-java?style=for-the-badge">
+  </a>
+</p>
+
 ![Trace](trace.png)
 
 This package provides OpenTelemetry-compliant tracing to Java
@@ -25,7 +38,7 @@ applications for the collection of distributed tracing and performance metrics i
 
 ### Download the javaagent
 
-Download the [latest version](https://cisco-java-sdk.s3.amazonaws.com/cisco-agent-1.0.0-all.jar)
+Download the [latest version](https://github.com/cisco-open/otel-java/releases/download/latest/cisco-telescope-javaagent.jar)
 
 
 ### Library initialization
@@ -72,9 +85,9 @@ collector.yaml ...
 
 exporters:
   otlphttp:
-    traces_endpoint: https://production.cisco-udp.com/trace-collector:80
+    traces_endpoint: https://production.cisco-udp.com/trace-collector
     headers:
-      authorization: <Your Telescope Token>
+      authorization: Bearer <Your Telescope Token>
     compression: gzip
 
 
@@ -91,10 +104,10 @@ service:
 
 
 ```shell
-export OTEL_TRACES_EXPORTER=otlp-http
+export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
 export OTEL_METRICS_EXPORTER=none
-export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://production.cisco-udp.com/trace-collector:80
-export OTEL_EXPORTER_OTLP_TRACES_HEADERS=authorization='<Your Telescope Token>'
+export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://production.cisco-udp.com/trace-collector
+export OTEL_EXPORTER_OTLP_HEADERS="authorization=Bearer <Your Telescope Token>"
 
 java -javaagent:./opentelemetry_javaagent.jar \
   -jar <myapp>.jar
@@ -129,7 +142,7 @@ Open Telemetry defaults:
 |OTEL_METRICS_EXPORTER                   | otel.metrics.exporter        | None            | By default, metrics are currently not supported|
 |OTEL_INSTRUMENTATION_RUNTIME-METRICS_ENABLED                           | otel.instrumentation.runtime-metrics.enabled        | None            | By default, metrics are currently not supported|
 |OTEL_TRACES_EXPORTER                   | otel.traces.exporter          | otlp-http            | Otlp over HTTP exporter|
-|OTEL_EXPORTER_OTLP_ENDPOINT                   | otel.exporter.otlp.endpoint        |     https://production.cisco-udp.com/trace-collector:80        | The Cisco Otlp-gRPC collector URL path|
+|OTEL_EXPORTER_OTLP_ENDPOINT                   | otel.exporter.otlp.endpoint        |     https://production.cisco-udp.com/trace-collector        | The Cisco Otlp-gRPC collector URL path|
 
 ## Getting Help
 
