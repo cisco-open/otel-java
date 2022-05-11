@@ -38,7 +38,7 @@ applications for the collection of distributed tracing and performance metrics i
 
 ### Download the javaagent
 
-Download the [latest version](https://github.com/cisco-open/otel-java/releases/download/latest/cisco-telescope-javaagent.jar)
+Download the [latest version](https://github.com/cisco-open/otel-java/releases/latest/download/cisco-telescope-javaagent.jar)
 
 
 ### Library initialization
