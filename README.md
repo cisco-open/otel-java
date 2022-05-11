@@ -2,7 +2,7 @@
 
 ![Trace](trace.png)
 
-This package provides OpenTelemetry-compliant tracing to Python
+This package provides OpenTelemetry-compliant tracing to Java
 applications for the collection of distributed tracing and performance metrics in [Cisco Telescope](https://console.telescope.app/?utm_source=github).
 
 
