@@ -65,7 +65,7 @@ By default, Cisco OpenTelemetry Distribution exports data directly to [Cisco Tel
 #### Configure custom trace exporter
 
 Cisco OpenTelemetry Distribution supports the configuration of multiple custom exporters. Note that you will need to handle your exporter authorization.
-Example for create OtlpGrpc Span exporter to local OpenTelemetry collector including metadata(headers) injection:
+Example for creating OtlpGrpc Span exporter to local OpenTelemetry collector including metadata(headers) injection:
 
 ```shell
 export OTEL_TRACES_EXPORTER=otlp
