@@ -36,9 +36,11 @@ Download the [latest version](https://github.com/cisco-open/otel-java/releases/l
 
 
 ### Library initialization
-> Cisco OpenTelemetry Distribution is activated and instruments the supported libraries once the app has started with
-> the javaagent 
->
+Cisco OpenTelemetry Distribution is activated and instruments the supported libraries once the app has started with
+the javaagent 
+
+To initialize the library, you'll need a cisco-token, which is taken from your [Account tab on the Telescope console Settings page](https://console.telescope.app/settings/account).
+
 
 * On Linux, run:
 ```shell
@@ -51,13 +53,13 @@ java -javaagent:./cisco-otel-javaagent.jar \
 
 ### OpenTelemetry Collector Configuration
 
-> By default, Cisco OpenTelemetry Distribution exports data directly to [Cisco Telescope's](https://console.telescope.app/?utm_source=github) infrastructure backend.
-> **Existing** OpenTelemetery Collector is supported, the following configuration can be applied
+By default, Cisco OpenTelemetry Distribution exports data directly to [Cisco Telescope's](https://console.telescope.app/?utm_source=github) infrastructure backend.
+**Existing** OpenTelemetery Collector is supported, the following configuration can be applied
 
 #### Configure custom trace exporter
 
-> Cisco OpenTelemetry Distribution supports configure multiple custom exporters.
-> Example for create OtlpGrpc Span exporter to local OpenTelemetry collector including metadata(headers) injection:
+Cisco OpenTelemetry Distribution supports the configuration of multiple custom exporters. Note that you will need to handle your exporter authorization.
+Example for creating OtlpGrpc Span exporter to local OpenTelemetry collector including metadata(headers) injection:
 
 ```shell
 export OTEL_TRACES_EXPORTER=otlp
@@ -121,12 +123,12 @@ In addition, Cisco OTel agent exports another set of Properties/Variables for th
 
 Cisco OTel Agent configurations:
 
-|System property                         |Environment variable          |Default          |Description
-|----------------------------------------|------------------------------|-----------------|----------------|
-|cisco.token                             | CISCO_TOKEN                  | None            | Cisco account token|
-|otel.service.name                       | OTEL_SERVICE_NAME            | `application`   | Java service name|
-|cisco.payloads_enabled                  | CISCO_PAYLOADS_ENABLED       | ```False```     | Whether to capture additional payloads and experimental attributes. Follow [Specifications](https://github.com/epsagon/cisco-otel-distribution-specifications) for more information.|
-|cisco.debug                             | -                            | ```False```     | Enable debug prints for troubleshooting|
+|System property                         |Environment variable          |Default          | Description                                                                                                                                                                          
+|----------------------------------------|------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|cisco.token                             | CISCO_TOKEN                  | None            | Cisco account token, should be taken from your [Account tab on the Telescope console Settings page](https://console.telescope.app/settings/account).                                 |
+|otel.service.name                       | OTEL_SERVICE_NAME            | `application`   | Java service name                                                                                                                                                                    |
+|cisco.payloads_enabled                  | CISCO_PAYLOADS_ENABLED       | ```False```     | Whether to capture additional payloads and experimental attributes. Follow [Specifications](https://github.com/epsagon/cisco-otel-distribution-specifications) for more information. |
+|cisco.debug                             | -                            | ```False```     | Enable debug prints for troubleshooting                                                                                                                                              |
 
 
 Open Telemetry defaults:
