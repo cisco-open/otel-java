@@ -5,12 +5,6 @@
   <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/tag/v1.13.0">
     <img alt="OpenTelemetry Instrumentation for Java Version" src="https://img.shields.io/badge/otel-1.13.0-blueviolet?style=for-the-badge">
   </a>
-  <a href="https://github.com/cisco-open/otel-java/actions/workflows/ci.yml">
-    <img alt="Build Status" src="https://img.shields.io/github/workflow/status/cisco-open/otel-java/Build?style=for-the-badge">
-  </a>
-  <a href="https://github.com/cisco-open/otel-java/releases">
-    <img alt="GitHub release (latest by date including)" src="https://img.shields.io/github/v/release/cisco-open/otel-java?style=for-the-badge">
-  </a>
 </p>
 
 ![Trace](trace.png)
