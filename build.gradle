@@ -1,5 +1,5 @@
 group 'com.cisco.opentelemetry'
-version '1.0.0-SNAPSHOT'
+version '0.0.3'
 
 buildscript {
   repositories {
@@ -26,7 +26,8 @@ subprojects {
       opentelemetryJavaagentAlpha: "1.14.0-alpha-SNAPSHOT",
       bytebuddy                  : "1.10.18",
       guava                      : "30.1-jre",
-      ciscoSpeifications         : "0.0.2-SNAPSHOT"
+      ciscoSpeifications         : "0.0.17-SNAPSHOT",
+      slf4j                      : "1.7.9"
     ]
 
     deps = [

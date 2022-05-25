@@ -8,6 +8,7 @@ apply from: "$rootDir/gradle/shadow.gradle"
 def relocatePackages = ext.relocatePackages
 
 dependencies {
+  compileOnly("org.slf4j:slf4j-api:${versions.slf4j}")
   compileOnly("io.opentelemetry:opentelemetry-sdk:${versions.opentelemetry}")
   compileOnly("io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi:${versions.opentelemetry}")
   compileOnly("io.opentelemetry.javaagent:opentelemetry-javaagent-extension-api:${versions.opentelemetryJavaagentAlpha}")
