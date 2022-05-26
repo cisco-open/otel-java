@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 
 import com.epsagon.specifications.consts.Consts;
 
+import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.api.common.Attributes;
 import io.opentelemetry.sdk.autoconfigure.spi.ConfigProperties;
 import io.opentelemetry.sdk.autoconfigure.spi.ResourceProvider;
@@ -28,11 +29,14 @@ import io.opentelemetry.sdk.resources.Resource;
 
 public class CiscoResourceProvider implements ResourceProvider {
   private static final Logger log = LoggerFactory.getLogger(CiscoResourceProvider.class.getName());
+  // TODO: make the specifications generate this one
+  public static final AttributeKey<String> CISCO_DISTRO_VERSION =
+      AttributeKey.stringKey(Consts.CISCO_SDK_VERSION);
 
   @Override
   public Resource createResource(ConfigProperties config) {
     Attributes attributes =
-        Attributes.builder().put(Consts.CISCO_SDK_VERSION, getAgentVersion()).build();
+        Attributes.builder().put(CISCO_DISTRO_VERSION, getAgentVersion()).build();
     return Resource.create(attributes);
   }
 

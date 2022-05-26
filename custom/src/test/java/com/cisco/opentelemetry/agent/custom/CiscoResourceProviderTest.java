@@ -30,6 +30,8 @@ class CiscoResourceProviderTest {
     var resource = provider.createResource(null);
 
     // then
+    assertThat(resource.getAttribute(CiscoResourceProvider.CISCO_DISTRO_VERSION))
+        .isEqualTo(CiscoResourceProvider.getAgentVersion());
     assertThat(resource.getAttributes().size()).isEqualTo(1);
   }
 }
