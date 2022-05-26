@@ -36,7 +36,7 @@ public class CiscoResourceProvider implements ResourceProvider {
     return Resource.create(attributes);
   }
 
-  private String getAgentVersion() {
+  public static String getAgentVersion() {
     String agentVersion = "";
     try {
       Class<?> ciscoAgentClass =

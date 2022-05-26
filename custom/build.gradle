@@ -14,12 +14,14 @@ dependencies {
   compileOnly("io.opentelemetry.javaagent:opentelemetry-javaagent-extension-api:${versions.opentelemetryJavaagentAlpha}")
   compileOnly("com.epsagon:specifications:${versions.ciscoSpeifications}")
 
-  testImplementation("io.opentelemetry:opentelemetry-sdk")
+  testImplementation("io.opentelemetry:opentelemetry-sdk:${versions.opentelemetry}")
   testImplementation("io.opentelemetry:opentelemetry-sdk-testing:${versions.opentelemetry}")
-  testImplementation("io.opentelemetry:opentelemetry-sdk-extension-autoconfigure:${versions.opentelemetry}")
   testImplementation("io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi:${versions.opentelemetry}")
-  testImplementation("io.opentelemetry.instrumentation:opentelemetry-instrumentation-api:${versions.opentelemetry}")
+  testImplementation("io.opentelemetry.instrumentation:opentelemetry-instrumentation-api:${versions.opentelemetryAlpha}")
   testImplementation("io.opentelemetry.javaagent:opentelemetry-javaagent-extension-api:${versions.opentelemetryJavaagentAlpha}")
+  testImplementation("io.opentelemetry.javaagent:opentelemetry-testing-common:${versions.opentelemetryJavaagentAlpha}") {
+    exclude group: 'org.eclipse.jetty', module: 'jetty-server'
+  }
 }
 
 tasks {
