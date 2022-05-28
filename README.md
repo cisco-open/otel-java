@@ -5,6 +5,9 @@
   <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/tag/v1.13.0">
     <img alt="OpenTelemetry Instrumentation for Java Version" src="https://img.shields.io/badge/otel-1.13.0-blueviolet?style=for-the-badge">
   </a>
+    <a href="https://github.com/signalfx/splunk-otel-java/releases">
+    <img alt="GitHub release" src="https://img.shields.io/github/v/release/cisco-open/otel-java?include_prereleases&style=for-the-badge">
+  </a>
 </p>
 
 ![Trace](trace.png)
