@@ -92,7 +92,7 @@ abstract class SmokeTest {
                 MountableFile.forHostPath(agentPath), "/opentelemetry-javaagent.jar")
             .withEnv(
                 "JAVA_TOOL_OPTIONS", "-javaagent:/opentelemetry-javaagent.jar -Dcisco.debug=true")
-            .withEnv("CISCO_TOKEN", "token")
+            .withEnv("CISCO_TOKEN", "myTok")
             .withEnv("OTEL_EXPORTER_OTLP_PROTOCOL", "grpc")
             .withEnv("OTEL_EXPORTER_OTLP_TRACES_ENDPOINT", "http://backend:8080")
             .withEnv("OTEL_EXPORTER_OTLP_HEADERS", "")
