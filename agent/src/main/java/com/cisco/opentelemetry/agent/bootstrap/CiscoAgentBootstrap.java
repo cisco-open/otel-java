@@ -30,8 +30,14 @@ public class CiscoAgentBootstrap {
     }
   }
 
+  static class InvalidTokenException extends Exception {
+    InvalidTokenException() {
+      super("Invalid token provided. checkout your token here: https://console.telescope.app/settings/account");
+    }
+  }
+
   public static void premain(final String agentArgs, final Instrumentation inst)
-      throws MissingTokenException {
+          throws MissingTokenException, InvalidTokenException {
 
     // In case the user set cisco.debug and not default otel.javaagent.debug
     // This is has to be done before Otel agent boot because he pools the config from System/Env and
@@ -45,14 +51,16 @@ public class CiscoAgentBootstrap {
     OpenTelemetryAgent.agentmain(agentArgs, inst);
 
     System.out.println(
-        "Cisco OTel agent is up. Version: "
+        Consts.TELESCOPE_IS_RUNNING_MESSAGE + "\nVersion: "
             + CiscoAgentBootstrap.class.getPackage().getImplementationVersion());
   }
 
-  private static void addCiscoTokenToOtlpHeaders() throws MissingTokenException {
+  private static void addCiscoTokenToOtlpHeaders() throws MissingTokenException, InvalidTokenException {
     String token = getConfig(Consts.CISCO_TOKEN_ENV);
     if (token == null) {
       throw new MissingTokenException();
+    } else if (token.contains("cisco") || token.contains("token")) {
+      throw new InvalidTokenException();
     }
 
     String userOtlpHeaders = getConfig("OTEL_EXPORTER_OTLP_HEADERS");
