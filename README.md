@@ -72,7 +72,7 @@ export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://localhost:4317
 export OTEL_SERVICE_NAME=APP
 export CISCO_TOKEN=<token>
 
-java -javaagent:./cisco-otel-javaagent.jar \
+java -javaagent:./cisco-telescope-javaagent.jar \
   -jar <myapp>.jar
 ```
 
