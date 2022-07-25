@@ -8,7 +8,7 @@ pluginManagement {
   }
 }
 
-rootProject.name = 'opentelemetry-java-instrumentation-distro-demo'
+rootProject.name = 'otel-java'
 
 include "agent"
 include "custom"
