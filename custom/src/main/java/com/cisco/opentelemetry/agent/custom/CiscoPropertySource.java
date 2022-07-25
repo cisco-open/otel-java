@@ -57,6 +57,28 @@ public class CiscoPropertySource implements ConfigPropertySource {
     properties.put("otel.instrumentation.servlet.experimental-span-attributes", "true");
     properties.put("otel.instrumentation.aws-sdk.experimental-span-attributes", "true");
     properties.put("otel.instrumentation.apache-camel.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.kafka.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.lettuce.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.guava.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.reactor.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.hibernate.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.spymemcached.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.twilio.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.jaxrs.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.elasticsearch.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.jsp.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.rabbitmq.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.grpc.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.kubernetes-client.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.rxjava.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.couchbase.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.rocketmq-client.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.spring-webflux.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.hystrix.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation.spring-webmvc.experimental-span-attributes", "true");
+    properties.put("otel.instrumentation..experimental-span-attributes", "true");
+    properties.put("otel.instrumentation..experimental-span-attributes", "true");
+    properties.put("otel.instrumentation..experimental-span-attributes", "true");
 
     return properties;
   }
