@@ -10,6 +10,8 @@
   </a>
 </p>
 
+> **Note:**  This repository is archived since Telescope is no longer supported
+
 ![Trace](trace.png)
 
 This package provides OpenTelemetry-compliant tracing to Java
